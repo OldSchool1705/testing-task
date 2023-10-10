@@ -1,0 +1,236 @@
+body {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: #1e1e1e;
+  font-family: "Montserrat", sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+// Custom  checkbox
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease-in-out;
+  color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 19px;
+  height: 19px;
+  border-radius: 5px;
+  background-color: #eee;
+  transition: all 0.3s ease-in-out;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: #696977;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: #ffd467;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 5px;
+  top: 3px;
+  width: 10px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+// Custom  selector
+
+.aselect {
+  width: 100%;
+  cursor: pointer;
+  .selector {
+    position: relative;
+    z-index: 1;
+    .arrow {
+      position: absolute;
+      right: 10px;
+      top: 40%;
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 10px solid #888;
+      transform: rotateZ(0deg) translateY(0px);
+      transition-duration: 0.3s;
+      transition-timing-function: cubic-bezier(0.59, 1.39, 0.37, 1.01);
+    }
+    .expanded {
+      transform: rotateZ(180deg) translateY(2px);
+    }
+    .label {
+      display: block;
+      padding: 10px;
+      font-size: 16px;
+      color: #888;
+      border-radius: 11px;
+      border: 1px solid #e6e6eb;
+    }
+  }
+  ul {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    border-radius: 11px;
+    border: 1px solid var(--grayscale-300, #e6e6eb);
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+  }
+  li {
+    padding: 12px;
+    color: #9292A0;
+    cursor: pointer;
+    &:hover {
+      color: white;
+      background: #9292A0;
+    }
+  }
+  .current {
+    background: #eaeaea;
+  }
+  .hidden {
+    visibility: hidden;
+  }
+  .visible {
+    visibility: visible;
+  }
+}
+
+// Custom switch
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 39px;
+  height: 19px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  width: 19px;
+  height: 19px;
+  left: -1px;
+  bottom: 0px;
+  background-color: #fff;
+  border: 1px solid #cdced8;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+
+  filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.03))
+    drop-shadow(0px 9px 27px rgba(0, 0, 0, 0.03))
+    drop-shadow(0px 15px 39px rgba(0, 0, 0, 0.03));
+}
+
+input:checked + .slider {
+  background-color: #7d7aff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #7d7aff;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
